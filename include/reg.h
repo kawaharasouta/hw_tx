@@ -35,13 +35,13 @@
 
 
 #define kidnet_write(func, dev, reg, val) \
-	func(val, (uint8_t *)(((struct kidnet_adapter *)dev))->mmio_addr + reg)
+	func(val, (uint8_t *)(((struct adapter *)dev))->mmio_addr + reg)
 #define kidnet_writeb(dev, reg, val) kidnet_write(writeb, dev, reg, val)
 #define kidnet_writew(dev, reg, val) kidnet_write(writew, dev, reg, val)
 #define kidnet_writel(dev, reg, val) kidnet_write(writel, dev, reg, val)
 
 #define kidnet_read(func, dev, reg) \
-	func((uint8_t *)(((struct kidnet_adapter *)dev))->mmio_addr + reg)
+	func((uint8_t *)(((struct adapter *)dev))->mmio_addr + reg)
 #define kidnet_readb(dev, reg) kidnet_read(readb, dev, reg)
 #define kidnet_readw(dev, reg) kidnet_read(readw, dev, reg)
 #define kidnet_readl(dev, reg) kidnet_read(readl, dev, reg)

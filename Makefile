@@ -1,5 +1,4 @@
-obj-m += hw_tx.o
-hw_tx-objs := hw_tx_main.o
+obj-m := hw_tx.o
 #PWD := $(shell pwd)
 
 all:

@@ -187,7 +187,7 @@ tx_setup(struct adapter *adapter) {
 	int ret, size;
 
 	ret = -ENOMEM;
-	tx_ring_info->tx_ring = vzalloc((sizeof(struct tx_buffer) * tx_ring_info->count));
+	tx_ring_info->tx_ring = vzalloc((sizeof(struct buffer) * tx_ring_info->count));
 	if (tx_ring_info->tx_ring)
 		goto err;
 	
