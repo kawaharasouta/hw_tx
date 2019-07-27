@@ -247,7 +247,7 @@ adapter_init(struct adapter *adapter) {
 
 
 int 
-kidnet_hw_legacy_tx(void *data, int len, struct adapter *adapter) {
+hw_tx(void *data, int len, struct adapter *adapter) {
 	struct pci_dev *pdev = adapter->pdev;
 	struct ring *tx_ring_info = adapter->tx_ring_info;
 	struct tx_desc *tx_desc;
@@ -286,6 +286,7 @@ tx_probe(struct pci_dev *pdev, const struct pci_device_id *ent) {
 	int ret;
 	resource_size_t mmio_start, mmio_len;
 	int bars;
+	uint8_t data[5] = {0xa, 0xb, 0xc, 0xd, 0xe};
 
 	adapter_free = kzalloc(sizeof(struct adapter), GFP_KERNEL);
 	struct adapter *adapter = adapter_free;
@@ -326,6 +327,7 @@ tx_probe(struct pci_dev *pdev, const struct pci_device_id *ent) {
 	
 	open(adapter);
 	tx_setup(adapter);
+	//hw_tx(data, 5, adapter);
 
 	return 0;
 
